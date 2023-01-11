@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import FurnitureItem from './components/FurnitureItem';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>test changes</Text>
+      <FurnitureItem title ="Development 5" subTitle="YP2908 / 2022"/>
       <StatusBar style="auto" />
     </View>
   );

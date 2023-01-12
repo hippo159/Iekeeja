@@ -13,11 +13,12 @@ return (
 }
 const styles = StyleSheet.create({
 tile:{
-    height: 200,
+    height: 300,
     borderColor: "#B4B8DA",
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderRadius: 5,
-    flexBasis: "48%",
+    flexBasis: "90%",
+    flexDirection: "column",
     marginVertical: '2%',
   },
   tileTitle:{
@@ -29,7 +30,7 @@ tile:{
   },
   tileImage:{
     width: "100%",
-    height: 120,
+    height: 180,
   },
   tileDetails:{
     padding: 6,

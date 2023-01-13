@@ -11,30 +11,19 @@ export default function App() {
       const [posts, setPosts] = useState([]);
       const getPosts = async() => {
         try{
-          fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18')
-          .then((response) => response.json())
-          .then((json) => setPosts(json))
-          .catch((error) => console.error(error))
-          .finally(() => console.log("done"));
-          //.finally(() => console.log(posts[0].featured_media));
+          const response = await fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18');
+          const json = await response.json();
+          setPosts(json);
+          
+          
         } catch (error) {
           console.log(error);
         }
       };
       useEffect(() => {
         getPosts();
-        console.log(posts[0].featured_media_urls.large);
       }, []);
       
-      const featuredImageId = posts.map(posts => posts.featured_media);
-      const featuredImage = [];
-      
-      for (var i = 0; i < featuredImageId.length; i++) {
-        fetch(`https://www.vandycklukas.be/wp-json/wp/v2/media/${featuredImageId[i]}`)
-        .then((response) => response.json())
-        .then((data) => featuredImage.push(data.source_url));
-        //.finally(() => console.log(featuredImage));
-      }
       
       
   
@@ -48,7 +37,7 @@ export default function App() {
         renderItem={({item, index}) => 
         (<FurnitureItem 
           //get image from wordpress api
-          image={featuredImage[index]}
+          image={item.featured_media_urls.large[0]}
           id={item.id}
           title={item.title.rendered} 
           subTitle={item.excerpt.rendered}/>)}

@@ -9,18 +9,26 @@ export default function App() {
 
       //get posts from api
       const [posts, setPosts] = useState([]);
-      useEffect(() => {
+      const getPosts = async() => {
+        try{
           fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18')
           .then((response) => response.json())
           .then((json) => setPosts(json))
           .catch((error) => console.error(error))
           .finally(() => console.log("done"));
           //.finally(() => console.log(posts[0].featured_media));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      useEffect(() => {
+        getPosts();
+        console.log(posts[0].featured_media_urls.large);
       }, []);
       
       const featuredImageId = posts.map(posts => posts.featured_media);
       const featuredImage = [];
-      //console.log(posts[0].featured_media_urls.large);
+      
       for (var i = 0; i < featuredImageId.length; i++) {
         fetch(`https://www.vandycklukas.be/wp-json/wp/v2/media/${featuredImageId[i]}`)
         .then((response) => response.json())

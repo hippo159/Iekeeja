@@ -3,9 +3,10 @@ import{ useState, useEffect } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 const FurnitureItem = (props) => {
 const id = props.id;
+
 return (
 <View style={styles.tile}>
-<Image style={styles.tileImage} source={{uri:props.image[1]}} />
+<Image style={styles.tileImage} source={{uri: props.image}} />
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>

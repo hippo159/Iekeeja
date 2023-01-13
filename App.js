@@ -20,13 +20,14 @@ export default function App() {
       
       const featuredImageId = posts.map(posts => posts.featured_media);
       const featuredImage = [];
-      
-      for (var i = 0; i < 7; i++) {
+      //console.log(posts[0].featured_media_urls.large);
+      for (var i = 0; i < featuredImageId.length; i++) {
         fetch(`https://www.vandycklukas.be/wp-json/wp/v2/media/${featuredImageId[i]}`)
         .then((response) => response.json())
         .then((data) => featuredImage.push(data.source_url));
         //.finally(() => console.log(featuredImage));
       }
+      
       
   
   return (
@@ -36,10 +37,10 @@ export default function App() {
         style={styles.container}
         data={posts}
         keyExtractor={item => item.id}
-        renderItem={({item}) => 
+        renderItem={({item, index}) => 
         (<FurnitureItem 
           //get image from wordpress api
-          image={featuredImage}
+          image={featuredImage[index]}
           id={item.id}
           title={item.title.rendered} 
           subTitle={item.excerpt.rendered}/>)}

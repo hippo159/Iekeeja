@@ -5,7 +5,7 @@ const FurnitureItem = (props) => {
 const id = props.id;
 return (
 <View style={styles.tile}>
-<Image style={styles.tileImage} source={require('../assets/icon.png')} />
+<Image style={styles.tileImage} source={props.image} />
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>

@@ -14,9 +14,8 @@ export default function App() {
           .then((response) => response.json())
           .then((json) => setPosts(json))
           .catch((error) => console.error(error))
-          .finally(() => console.log("done"));
+          .finally(() => console.log(posts[0].featured_media));
       }, []);
-      
    
   return (
     <PaperProvider>
@@ -27,6 +26,8 @@ export default function App() {
         keyExtractor={item => item.id}
         renderItem={({item}) => 
         (<FurnitureItem 
+          //get image from wordpress api
+          image={item.featured_media}
           id={item.id}
           title={item.title.rendered} 
           subTitle={item.excerpt.rendered}/>)}

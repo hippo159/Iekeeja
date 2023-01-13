@@ -14,23 +14,24 @@ export default function App() {
           .then((response) => response.json())
           .then((json) => setPosts(json))
           .catch((error) => console.error(error))
-          .finally(() => console.log(posts.map(post => post.title.rendered)));
+          .finally(() => console.log("done"));
       }, []);
       
    
   return (
     <PaperProvider>
-    <View style={styles.Furniturecontainer}>
-    <FlatList
-     //style={styles.container}
-     data={posts}
-     keyExtractor={item => item.id}
-     renderItem={({item}) => 
-     (<FurnitureItem 
-      title={item.title.rendered} 
-      subTitle={item.excerpt.rendered}/>)}
-     />
-    </View>
+      <View style={styles.Furniturecontainer}>
+        <FlatList
+        style={styles.container}
+        data={posts}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => 
+        (<FurnitureItem 
+          title={item.title.rendered} 
+          subTitle={item.excerpt.rendered}/>)}
+        />
+      </View>
+
     <NavBar></NavBar>
     </PaperProvider>
   );
@@ -38,17 +39,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
     flex: 2,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    flexGrow: 0,
-    flexShrink:0 ,
-    //justifyContent: "space-evenly",
   },
   Furniturecontainer: {
     
-    flex: 3,
+    flex: 10,
     backgroundColor: '#fff',
     flexWrap: "wrap",
     

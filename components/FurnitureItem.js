@@ -45,7 +45,7 @@ button:{
     
 },
 tile:{
-    height: 300,
+    height: 'auto',
     borderColor: "#B4B8DA",
     borderBottomWidth: 1,
     borderRadius: 5,

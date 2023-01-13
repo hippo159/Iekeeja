@@ -2,7 +2,7 @@ import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-nati
 import{ useState, useEffect } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 const FurnitureItem = (props) => {
-   
+const id = props.id;
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={require('../assets/icon.png')} />
@@ -17,7 +17,7 @@ return (
         animated={true}
         mode='contained'
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => console.log(id + 'cart')}
         />
         <IconButton
         icon="heart-outline"
@@ -25,7 +25,7 @@ return (
         style={styles.button}
         mode='contained'
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => console.log(id+'save')}
         />
     </View>
 </View>

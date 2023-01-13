@@ -27,6 +27,7 @@ export default function App() {
         keyExtractor={item => item.id}
         renderItem={({item}) => 
         (<FurnitureItem 
+          id={item.id}
           title={item.title.rendered} 
           subTitle={item.excerpt.rendered}/>)}
         />

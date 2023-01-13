@@ -2,18 +2,7 @@ import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-nati
 import{ useState, useEffect } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 const FurnitureItem = (props) => {
-    //get posts from https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18 api
-     const [posts, setPosts] = useState([]);
-     useEffect(() => {
-         fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18')
-         .then((response) => response.json())
-         .then((json) => setPosts(json))
-         .catch((error) => console.error(error))
-         .finally(() => console.log('done'));
-     }, []);
-     console.log(posts);
-
-    
+   
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={require('../assets/icon.png')} />

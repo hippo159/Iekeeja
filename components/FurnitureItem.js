@@ -1,5 +1,5 @@
-import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, Button } from 'react-native';
-
+import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-native';
+import { Button } from 'react-native-paper';
 const FurnitureItem = (props) => {
 return (
 <View style={styles.tile}>
@@ -7,10 +7,13 @@ return (
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
+    </View>    
+    <View style={styles.tileButtons}>
+    <Button icon="cart" mode="contained" onPress={() => console.log('Pressed')}></Button>
+    <Button icon="heart" mode="contained" onPress={() => console.log('Pressed')}></Button>
     </View>
-    <Button style={styles.button} title="View" onPress={() => alert("View")} />
-    <Button style={styles.button} title="Edit" onPress={() => alert("Edit")} />
 </View>
+
 
 
 );

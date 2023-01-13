@@ -1,17 +1,27 @@
-import{ StyleSheet, Text, View, Image, ScrollView, StatusBar } from 'react-native';
+import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, Button } from 'react-native';
 
 const FurnitureItem = (props) => {
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={require('../assets/icon.png')} />
-<View style={styles.tileDetails}>
-  <Text style={styles.tileTitle}>{props.title}</Text>
-  <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
-  </View>
+    <View style={styles.tileDetails}>
+    <Text style={styles.tileTitle}>{props.title}</Text>
+    <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
+    </View>
+    <Button style={styles.button} title="View" onPress={() => alert("View")} />
+    <Button style={styles.button} title="Edit" onPress={() => alert("Edit")} />
 </View>
+
+
 );
 }
 const styles = StyleSheet.create({
+tileButtons:{
+    width: "10%",
+},
+button:{
+width: "50px",
+},
 tile:{
     height: 300,
     borderColor: "#B4B8DA",

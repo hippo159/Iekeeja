@@ -5,7 +5,7 @@ const FurnitureItem = (props) => {
 const id = props.id;
 return (
 <View style={styles.tile}>
-<Image style={styles.tileImage} source={props.image} />
+<Image style={styles.tileImage} source={{uri:props.image[1]}} />
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>

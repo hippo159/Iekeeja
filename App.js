@@ -14,9 +14,21 @@ export default function App() {
           .then((response) => response.json())
           .then((json) => setPosts(json))
           .catch((error) => console.error(error))
-          .finally(() => console.log(posts[0].featured_media));
+          .finally(() => console.log("done"));
+          //.finally(() => console.log(posts[0].featured_media));
       }, []);
-   
+      
+      const featuredImageId = posts.map(posts => posts.featured_media);
+      const featuredImage = [];
+      
+      for (var i = 0; i < 7; i++) {
+        fetch(`https://www.vandycklukas.be/wp-json/wp/v2/media/${featuredImageId[i]}`)
+        .then((response) => response.json())
+        .then((data) => featuredImage.push(data.source_url));
+        //.finally(() => console.log(featuredImage));
+      }
+      
+  
   return (
     <PaperProvider>
       <View style={styles.Furniturecontainer}>
@@ -27,7 +39,7 @@ export default function App() {
         renderItem={({item}) => 
         (<FurnitureItem 
           //get image from wordpress api
-          image={item.featured_media}
+          image={featuredImage}
           id={item.id}
           title={item.title.rendered} 
           subTitle={item.excerpt.rendered}/>)}

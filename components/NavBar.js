@@ -1,4 +1,6 @@
-import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-native';
+import{ StyleSheet, View, Image, ScrollView, StatusBar} from 'react-native';
+//import use state
+import { useState } from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
 const HomeRoute = () => <Text>Home</Text>;
@@ -10,8 +12,8 @@ const ThirdRoute = () => <Text>test</Text>;
 const FourthRoute = () => <Text>test</Text>;
 
 const NavBar = () => {
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
+    const [index, setIndex] = useState(0);
+    const [routes] = useState([
       { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline'},
       { key: 'saved', title: 'Saved', focusedIcon: 'heart', unfocusedIcon: 'heart-outline' },
       { key: '3', title: 'Recents', focusedIcon: 'history' },

@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import FurnitureItem from './components/FurnitureItem';
+import NavBar from './components/NavBar';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
     </ScrollView>
+    <NavBar></NavBar>
     </PaperProvider>
   );
 }

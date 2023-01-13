@@ -1,5 +1,5 @@
 import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, IconButton } from 'react-native-paper';
 const FurnitureItem = (props) => {
 return (
 <View style={styles.tile}>
@@ -9,8 +9,22 @@ return (
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
     </View>    
     <View style={styles.tileButtons}>
-    <Button icon="cart" mode="contained" onPress={() => console.log('Pressed')}></Button>
-    <Button icon="heart" mode="contained" onPress={() => console.log('Pressed')}></Button>
+        <IconButton
+        style={styles.button}
+        icon="cart"
+        animated={true}
+        mode='contained'
+        size={20}
+        onPress={() => console.log('Pressed')}
+        />
+        <IconButton
+        icon="heart-outline"
+        animated={true}
+        style={styles.button}
+        mode='contained'
+        size={20}
+        onPress={() => console.log('Pressed')}
+        />
     </View>
 </View>
 
@@ -20,10 +34,13 @@ return (
 }
 const styles = StyleSheet.create({
 tileButtons:{
-    width: "10%",
+    
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    padding: 5,
 },
 button:{
-width: "50px",
+    
 },
 tile:{
     height: 300,
@@ -33,6 +50,7 @@ tile:{
     flexBasis: "90%",
     flexDirection: "column",
     marginVertical: '2%',
+    
   },
   tileTitle:{
     fontSize: 21,

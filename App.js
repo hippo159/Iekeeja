@@ -5,6 +5,7 @@ import {View,StyleSheet } from 'react-native';
 import NavBar from './components/NavBar';
 
 import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
         <View style={styles.container}>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
           </Stack.Navigator>
           <View style={styles.navbar}>
             <NavBar></NavBar>

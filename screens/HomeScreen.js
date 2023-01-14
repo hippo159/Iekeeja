@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View, FlatList } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, FlatList, } from 'react-native';
 import FurnitureItem from '../components/FurnitureItem';      
 
 import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper';
@@ -19,11 +19,12 @@ import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper'
       };
       useEffect(() => {
         getPosts();
-      }, []);
+      }, [posts]);
 
 return (
     <PaperProvider>
 <View style={styles.Furniturecontainer}>
+
         <FlatList
         style={styles.container}
         data={posts}

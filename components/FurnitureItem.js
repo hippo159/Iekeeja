@@ -13,16 +13,7 @@ return (
     <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
     </View>    
     <View style={styles.tileButtons}>
-        <IconButton
-        style={styles.button}
-        icon="arrow-right"
-        animated={true}
-        mode='contained'
-        size={20}
-        onPress={() => navigation.navigate('DetailsScreen', { post: id })}
-
-        />
-        <IconButton
+    <IconButton
         icon="heart-outline"
         animated={true}
         style={styles.button}
@@ -30,6 +21,16 @@ return (
         size={20}
         onPress={() => console.log(id+'save')}
         />
+        <IconButton
+        style={styles.button}
+        icon="arrow-right"
+        animated={true}
+        mode='contained'
+        size={20}
+        onPress={() => navigation.navigate('DetailsScreen', { props })}
+
+        />
+        
     </View>
 </View>
 

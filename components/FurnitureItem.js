@@ -59,11 +59,14 @@ tile:{
     
   },
   tileTitle:{
-    fontSize: 21,
-    fontWeight: "600",
+    fontSize: 26,
+    color:"#6b4faa",
+    
+    fontWeight: "800",
+    paddingBottom: 10,
   },
   tileSubTitle:{
-    fontSize: 14,
+    fontSize: 16,
   },
   tileImage:{
     width: "100%",

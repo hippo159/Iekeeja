@@ -11,7 +11,7 @@ import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper'
           const response = await fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18');
           const json = await response.json();
           setPosts(json);
-          
+          console.log(json[0].content.rendered);
           
         } catch (error) {
           console.log(error);
@@ -19,7 +19,8 @@ import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper'
       };
       useEffect(() => {
         getPosts();
-      }, [posts]);
+        
+      }, []);
 
 return (
     <PaperProvider>

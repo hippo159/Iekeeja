@@ -5,13 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 const FurnitureItem = (props) => {
 const id = props.id;
 const navigation = useNavigation();
-
+const excerpt = props.subTitle.substring(3, 80) + '...';
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
-    <Text style={styles.tileSubTitle}>{props.subTitle}</Text>
+    <Text style={styles.tileSubTitle}>{excerpt}</Text>
     </View>    
     <View style={styles.tileButtons}>
     <IconButton
@@ -46,9 +46,7 @@ tileButtons:{
     justifyContent: "flex-end",
     padding: 5,
 },
-button:{
-    
-},
+
 tile:{
     height: 'auto',
     borderColor: "#B4B8DA",
@@ -57,6 +55,7 @@ tile:{
     flexBasis: "90%",
     flexDirection: "column",
     marginVertical: '2%',
+    
     
   },
   tileTitle:{

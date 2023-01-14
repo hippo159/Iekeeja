@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 const FurnitureItem = (props) => {
 const id = props.id;
 const navigation = useNavigation();
+
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />

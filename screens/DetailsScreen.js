@@ -2,13 +2,14 @@ import { View, Text, Image,StyleSheet } from 'react-native';
 import FurnitureItem from '../components/FurnitureItem';
 
 const DetailsScreen = ( props ) => {
-    console.log(props.route.params.props.image);
+    const text = props.route.params.props.subTitle;
+    const textFiltered = text.substring(3, text.length - 5);
   return (
     <View>
         <View>
             <Image style={styles.image} source={{uri: props.route.params.props.image}}/>
             <Text>{props.route.params.props.title}</Text>
-            <Text>{props.route.params.props.subTitle}</Text>
+            <Text>{textFiltered}</Text>
         </View>
     </View>
   );

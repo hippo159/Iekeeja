@@ -61,7 +61,6 @@ tile:{
   tileTitle:{
     fontSize: 26,
     color:"#6b4faa",
-    
     fontWeight: "800",
     paddingBottom: 10,
   },
@@ -71,6 +70,7 @@ tile:{
   tileImage:{
     width: "100%",
     height: 180,
+    borderRadius: 5,
   },
   tileDetails:{
     padding: 6,

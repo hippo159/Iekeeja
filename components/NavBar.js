@@ -3,9 +3,7 @@ import{ StyleSheet, View, Image, ScrollView, StatusBar} from 'react-native';
 import { useState } from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
-const HomeRoute = () => <Text style={{
-    backgroundColor: '#fffff0',
-}}>Home</Text>;
+const HomeRoute = () => <Text>  </Text>
 
 const SavedRoute = () => <Text>Saved</Text>;
 

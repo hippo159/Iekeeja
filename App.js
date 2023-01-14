@@ -1,63 +1,47 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View, FlatList } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
-import FurnitureItem from './components/FurnitureItem';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {View,StyleSheet } from 'react-native';
 import NavBar from './components/NavBar';
+
+import HomeScreen from './screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
-      //get posts from api
-      const [posts, setPosts] = useState([]);
-      const getPosts = async() => {
-        try{
-          const response = await fetch('https://www.vandycklukas.be/wp-json/wp/v2/posts?categories=18');
-          const json = await response.json();
-          setPosts(json);
-          
-          
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      useEffect(() => {
-        getPosts();
-      }, []);
+
       
       
       
   
   return (
-    <PaperProvider>
-      <View style={styles.Furniturecontainer}>
-        <FlatList
-        style={styles.container}
-        data={posts}
-        keyExtractor={item => item.id}
-        renderItem={({item, index}) => 
-        (<FurnitureItem 
-          //get image from wordpress api
-          image={item.featured_media_urls.large[0]}
-          id={item.id}
-          title={item.title.rendered} 
-          subTitle={item.excerpt.rendered}/>)}
-        />
-      </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </Stack.Navigator>
+          <View style={styles.navbar}>
+            <NavBar></NavBar>
+          </View>
+        </View>
+    </NavigationContainer>
+    </SafeAreaProvider>
+    
 
-    <NavBar></NavBar>
-    </PaperProvider>
+    
+    
   );
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
+    flexDirection: 'column',
   },
-  Furniturecontainer: {
-    
-    flex: 10,
-    backgroundColor: '#fff',
-    flexWrap: "wrap",
-    
+  navbar: {
+    flex: 0.09,
   },
 });
+
+

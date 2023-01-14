@@ -6,6 +6,7 @@ const FurnitureItem = (props) => {
 const id = props.id;
 const navigation = useNavigation();
 const excerpt = props.subTitle.substring(3, 80) + '...';
+
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />

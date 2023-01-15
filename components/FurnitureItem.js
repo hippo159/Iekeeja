@@ -2,6 +2,12 @@ import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-nati
 import{ useState, useEffect } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+
+  const savedItems = [];
+  const saveItems = (itemId) => {
+      savedItems.push(itemId);
+      console.log(savedItems);
+  }
 const FurnitureItem = (props) => {
 const id = props.id;
 const navigation = useNavigation();
@@ -21,7 +27,7 @@ return (
         style={styles.button}
         mode='contained'
         size={20}
-        onPress={() => console.log(id+'save')}
+        onPress={() => saveItems(props.id)}
         />
         <IconButton
         style={styles.button}

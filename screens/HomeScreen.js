@@ -12,7 +12,6 @@ import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper'
           const json = await response.json();
           setPosts(json);
           
-          
         } catch (error) {
           console.log(error);
         }

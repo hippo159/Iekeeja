@@ -1,21 +1,36 @@
 import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-native';
 import { Button, IconButton } from 'react-native-paper';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 //the non-state version of this code
-//const savedItems = [];
-//const saveItem = (itemId) => {
-//    savedItems.push(itemId);
-//    console.log(savedItems);
-//}
+
+
 const FurnitureItem = (props) => {
-  //the state version of this code
-  //const [savedItems,setSavedItems] = useState([]);
-  // const saveItem = (itemId) => {
-  //  setSavedItems(itemId);
-  //  console.log(savedItems);
-  //}
+const savedItemStorage = useAsyncStorage('savedItems');
+
+const saveItem = async(itemId) => {
+
+ let savedItemsString = await savedItemStorage.getItem();
+ if (savedItemsString === null || savedItemsString === undefined || savedItemsString === '') {
+  savedItemsString = '[]';
+  }
+ let savedItems = JSON.parse(savedItemsString);
+ if (savedItems.includes(itemId)) {
+  console.log("removing " + itemId)
+  savedItems = savedItems.filter((item) => item !== itemId);
+ }else{
+  console.log("adding " + itemId)
+  savedItems.push(itemId);
+ }
+ console.log(savedItems);
+ await savedItemStorage.setItem(JSON.stringify(savedItems));
+
+ const result = await savedItemStorage.getItem();
+ //console.log(result);
+}
+
 const navigation = useNavigation();
 const excerpt = props.subTitle.substring(3, 80) + '...';
 const id = props.id;

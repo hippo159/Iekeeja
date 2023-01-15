@@ -6,9 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import SavedItemsScreen from '../screens/SavedItemsScreen';
 
-const HomeRoute = () => <Text>  </Text>
 
-const SavedRoute = () => <Text>Saved</Text>;
 
 const ThirdRoute = () => <Text>test</Text>;
 

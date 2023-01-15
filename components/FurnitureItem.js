@@ -1,18 +1,24 @@
 import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-native';
-import{ useState, useEffect } from 'react';
 import { Button, IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 
-  const savedItems = [];
-  const saveItems = (itemId) => {
-      savedItems.push(itemId);
-      console.log(savedItems);
-  }
+//the non-state version of this code
+//const savedItems = [];
+//const saveItem = (itemId) => {
+//    savedItems.push(itemId);
+//    console.log(savedItems);
+//}
 const FurnitureItem = (props) => {
-const id = props.id;
+  //the state version of this code
+  //const [savedItems,setSavedItems] = useState([]);
+  // const saveItem = (itemId) => {
+  //  setSavedItems(itemId);
+  //  console.log(savedItems);
+  //}
 const navigation = useNavigation();
 const excerpt = props.subTitle.substring(3, 80) + '...';
-
+const id = props.id;
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />
@@ -27,7 +33,7 @@ return (
         style={styles.button}
         mode='contained'
         size={20}
-        onPress={() => saveItems(props.id)}
+        onPress={() => saveItem(id)}
         />
         <IconButton
         style={styles.button}

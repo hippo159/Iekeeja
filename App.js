@@ -4,18 +4,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {View,StyleSheet } from 'react-native';
 import NavBar from './components/NavBar';
 
+import SavedItemsScreen from './screens/SavedItemsScreen';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
-
-      
-      
-      
-  
+     
   return (
     <SafeAreaProvider>
       <NavigationContainer>
@@ -23,6 +20,7 @@ export default function App() {
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+            <Stack.Screen name="Saved Items" component={SavedItemsScreen} />
           </Stack.Navigator>
           <View style={styles.navbar}>
             <NavBar></NavBar>

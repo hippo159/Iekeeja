@@ -33,6 +33,7 @@ const saveItem = async(itemId) => {
 const navigation = useNavigation();
 const excerpt = props.subTitle.substring(3, 80) + '...';
 const id = props.id;
+const [isFilled, setIsFilled] = useState(false);
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />
@@ -42,13 +43,15 @@ return (
     </View>    
     <View style={styles.tileButtons}>
     <IconButton
-        icon="heart-outline"
+        icon={isFilled ? "heart" : "heart-outline"}
         animated={true}
         style={styles.button}
         mode='contained'
         size={20}
-        onPress={() => saveItem(id)}
-        />
+        onPress={() => {
+          saveItem(id);
+          setIsFilled(!isFilled);
+      }}/>
         <IconButton
         style={styles.button}
         icon="arrow-right"

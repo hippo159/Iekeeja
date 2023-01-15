@@ -11,7 +11,7 @@ const SavedItemsScreen = (props) => {
     const [posts, setPosts] = useState([]);
     const getPostById = async (id) => {
       try{
-        const response = await fetch(`https://www.vandycklukas.be/wp-json/wp/v2/posts?id=${id}`);
+        const response = await fetch(`https://www.vandycklukas.be/wp-json/wp/v2/posts/${id}`);
         const json = await response.json();
         setPosts((prevPosts) => [...prevPosts, json]);
         
@@ -46,10 +46,10 @@ return (
       renderItem={({item, index}) => 
       (<SavedItem 
         //get image from wordpress api
-        //image={item.featured_media_urls.large[0]}
-        //id={item.id}
-        title= "test title"//{item.title.rendered} 
-        subTitle="test sub"//{item.excerpt.rendered}
+        image={item.featured_media_urls.large[0]}
+        id={item.id}
+        title= {item.title.rendered} 
+        subTitle={item.excerpt.rendered}
         />)}
       />
     </View>

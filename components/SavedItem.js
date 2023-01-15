@@ -3,15 +3,17 @@ import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-nati
 import { Button, IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-console.log("SavedItem.js loaded")
+
 const SavedItem = (props) => {
 const navigation = useNavigation();
+const text = props.subTitle;
+const excerpt = text.substring(3, text.length - 5);
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />
     <View style={styles.tileDetails}>
     <Text style={styles.tileTitle}>{props.title}</Text>
-    <Text style={styles.tileSubTitle}>{props.tileSubTitle}</Text>
+    <Text style={styles.tileSubTitle}>{excerpt}</Text>
     </View>    
     <View style={styles.tileButtons}>
    

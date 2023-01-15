@@ -18,9 +18,9 @@ export default function App() {
       <NavigationContainer>
         <View style={styles.container}>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Ikeeja" component={HomeScreen} />
             <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-            <Stack.Screen name="Saved Items" component={SavedItemsScreen} />
+            <Stack.Screen name="SavedItemsScreen" component={SavedItemsScreen} />
           </Stack.Navigator>
           <View style={styles.navbar}>
             <NavBar></NavBar>

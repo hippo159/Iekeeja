@@ -2,11 +2,11 @@ import{ StyleSheet, Text, View, Image, ScrollView, StatusBar, } from 'react-nati
 import { Button, IconButton } from 'react-native-paper';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const FurnitureItem = (props) => {
 const savedItemStorage = useAsyncStorage('savedItems');
-
+const [isFilled, setIsFilled] = useState(false);
 const saveItem = async(itemId) => {
 //get string from storage
  let savedItemsString = await savedItemStorage.getItem();
@@ -33,7 +33,11 @@ const saveItem = async(itemId) => {
 const navigation = useNavigation();
 const excerpt = props.subTitle.substring(3, 80) + '...';
 const id = props.id;
-const [isFilled, setIsFilled] = useState(false);
+
+//TODO: check if item is already saved and fill heart
+
+
+
 return (
 <View style={styles.tile}>
 <Image style={styles.tileImage} source={{uri: props.image}} />

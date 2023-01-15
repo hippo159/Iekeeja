@@ -2,11 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View, FlatList, } from 'react-native';
 import SavedItem from '../components/SavedItem';
+import { FAB } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper';
 
 
-const SavedItemsScreen = (props) => {
+const SavedItemsScreen = ({navigation}) => {
     //get posts from api
     const [posts, setPosts] = useState([]);
     const getPostById = async (id) => {
@@ -35,6 +36,15 @@ const SavedItemsScreen = (props) => {
       getPostsFromAsyncStorage();
       
     }, []);
+     //function remove all favorites
+      const removeFavorites = async () => {
+        try {
+          await AsyncStorage.removeItem('savedItems');
+          setPosts([]);
+        } catch (error) {
+          console.log(error);
+        }
+      }
 return (
   <PaperProvider>
 <View style={styles.Furniturecontainer}>
@@ -52,11 +62,24 @@ return (
         subTitle={item.excerpt.rendered}
         />)}
       />
+      <View>
+        <FAB
+      icon="delete"
+      style={styles.fab}
+      onPress={() => removeFavorites()}
+        />
+    </View>
     </View>
     </PaperProvider>
   );
 }
 const styles = StyleSheet.create({
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+  },
   container: {
       flex:1,
       backgroundColor: '#fff',

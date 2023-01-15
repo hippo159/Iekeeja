@@ -5,10 +5,10 @@ import { BottomNavigation, Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import SavedItemsScreen from '../screens/SavedItemsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 
 
-const ThirdRoute = () => <Text>test</Text>;
 
 const FourthRoute = () => <Text>test</Text>;
 
@@ -18,13 +18,13 @@ const NavBar = () => {
   const [routes] = useState([
   { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline'},
   { key: 'saved', title: 'Saved', focusedIcon: 'heart', unfocusedIcon: 'heart-outline' },
-  { key: '3', title: 'Recents', focusedIcon: 'history' },
+  { key: 'settings', title: 'Settings', focusedIcon: 'cog', unfocusedIcon: 'cog-outline' },
   { key: '4', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
   ]);
   const renderScene = BottomNavigation.SceneMap({
   home: () => <HomeScreen navigation={navigation}/>,
   saved: () => <SavedItemsScreen navigation={navigation}/>,
-  3: ThirdRoute,
+  settings: () => <SettingsScreen navigation={navigation}/>,
   4: FourthRoute,
   });
   return (

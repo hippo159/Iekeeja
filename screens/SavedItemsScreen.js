@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View, FlatList, } from 'react-native';
 import SavedItem from '../components/SavedItem';
+import { BottomNavigation, Provider as PaperProvider } from 'react-native-paper';
 
 
 const SavedItemsScreen = (props) => {
@@ -9,18 +10,7 @@ const SavedItemsScreen = (props) => {
         <PaperProvider>
     <View style={styles.Furniturecontainer}>
     
-            <FlatList
-            style={styles.container}
-            data={posts}
-            keyExtractor={item => item.id}
-            renderItem={({item, index}) => 
-            (<SavedItem 
-              //get image from wordpress api
-              image={item.featured_media_urls.large[0]}
-              id={item.id}
-              title={item.title.rendered} 
-              subTitle={item.excerpt.rendered}/>)}
-            />
+            <Text>iets anders</Text>
           </View>
           </PaperProvider>
         );

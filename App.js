@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   navbar: {
-    flex: 0.09,
+    flex: 10,
   },
 });
 

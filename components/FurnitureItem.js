@@ -4,19 +4,19 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
-//the non-state version of this code
-
-
 const FurnitureItem = (props) => {
 const savedItemStorage = useAsyncStorage('savedItems');
 
 const saveItem = async(itemId) => {
-
+//get string from storage
  let savedItemsString = await savedItemStorage.getItem();
+ //if string is empty, set to empty array
  if (savedItemsString === null || savedItemsString === undefined || savedItemsString === '') {
   savedItemsString = '[]';
   }
+  //parse string to array
  let savedItems = JSON.parse(savedItemsString);
+  //check if item is already saved
  if (savedItems.includes(itemId)) {
   console.log("removing " + itemId)
   savedItems = savedItems.filter((item) => item !== itemId);
@@ -25,10 +25,9 @@ const saveItem = async(itemId) => {
   savedItems.push(itemId);
  }
  console.log(savedItems);
+  //save array to storage
  await savedItemStorage.setItem(JSON.stringify(savedItems));
-
- const result = await savedItemStorage.getItem();
- //console.log(result);
+ 
 }
 
 const navigation = useNavigation();
